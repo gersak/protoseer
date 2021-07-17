@@ -1,0 +1,26 @@
+{:mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
+             "clojars" {:url "https://repo.clojars.org/"}}
+ :deps 
+ {org.clojure/clojure             {:mvn/version "1.10.3"}
+  org.clojure/core.async          {:mvn/version "1.3.618"} 
+
+  com.google.protobuf/protobuf-java-util {:mvn/version "4.0.0-rc-2"}
+  com.google.protobuf/protobuf-java {:mvn/version "3.17.3"}}
+ ;;
+ :paths ["src/generated" "src/clj" "src/classes" "resources"]
+ ;;
+ :aliases {:hr {:jvm-opts ["-Duser.country=HR" 
+                           "-Duser.language=hr" 
+                           "-Dfile.encoding=UTF-8"]}
+           :java {:extra-deps
+                  {javax.annotation/javax.annotation-api {:mvn/version "1.3.2"}}}
+           :dev {:extra-paths ["profiles/dev"]}
+           :cider 
+           {:extra-deps 
+            {cider/cider-nrepl {:mvn/version "0.25.2"}
+             nrepl/nrepl {:mvn/version "0.7.0"}}}
+           :grpc 
+           {:extra-deps
+            {io.grpc/grpc-netty {:mvn/version "1.39.0"}
+             io.grpc/grpc-protobuf {:mvn/version "1.39.0"}
+             io.grpc/grpc-stub {:mvn/version "1.39.0"}}}}}
